@@ -4,8 +4,6 @@
   "description": "",
   "main": "app.js",
   "author": "Dev AKS",
-  "license": "ISC",
-  "type": "module",
   "scripts": {
     "start": "npx tsc && node ds.js"
   },
