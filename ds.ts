@@ -1,4 +1,4 @@
-import stack from './Stack';
+import stack from './src/data-structure/Stack';
 
 const main = () => {
     stack();
