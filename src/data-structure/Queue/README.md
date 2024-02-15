@@ -9,5 +9,6 @@ Queues use the first-in-first-out principle.
 </p>
 
 
-
 ## Time complexity
+
+<img width="596" alt="Screenshot 2024-02-15 at 23 43 21" src="https://github.com/devaaks/data-structure-js/assets/16061289/1be0f836-227e-4ea8-98d0-9d624f08057c">
