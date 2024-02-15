@@ -1,5 +1,5 @@
-import stack from './src/data-structure/Stack';
-import queue from './src/data-structure/Queue';
+import stack from './src/Stack';
+import queue from './src/Queue';
 
 const main = () => {
     stack();
