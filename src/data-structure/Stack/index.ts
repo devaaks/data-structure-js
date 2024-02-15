@@ -1,10 +1,10 @@
 export class Stack {
-  stack: string[];
+  stack: number[];
   constructor() {
     this.stack = [];
   }
   
-  push(data: string) {
+  push(data: number) {
     this.stack.push(data);
   }
 
@@ -18,13 +18,17 @@ export class Stack {
 }
 
 const main = () => {
+
+  console.clear();
+  console.log(`====================== Stack ====================== `);
+
   let stack = new Stack(); 
 
-  stack.push('Dev');
-  stack.push('AKS');
-  stack.push('Git');
-  stack.push('Repo');
-  console.log(`Stack after push operation: `, stack.print());
+  stack.push(101);
+  stack.push(102);
+  stack.push(201);
+  stack.push(404);
+  console.log(`\nStack after push operation: `, stack.print());
 
   stack.pop();
   console.log(`Stack after pop operation: `, stack.print());
