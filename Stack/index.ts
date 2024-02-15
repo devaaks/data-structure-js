@@ -8,7 +8,6 @@ export class Stack {
     this.stack.push(data);
   }
 
-  //pop takes no arguments and automatically removes the top elements
   pop() { 
     return this.stack.pop();
   }
@@ -23,7 +22,8 @@ const main = () => {
 
   stack.push('Dev');
   stack.push('AKS');
-  stack.push('!');
+  stack.push('Git');
+  stack.push('Repo');
   console.log(`Stack after push operation: `, stack.print());
 
   stack.pop();
