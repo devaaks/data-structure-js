@@ -6,3 +6,4 @@ This repository contains Typscript-based implementation of popular data structur
 
 - [Stack](./src/Stack/README.md)
 - [Queue](./src/Queue/README.md)
+- [Linked List](./src/Linked%20Lists/README.md)
