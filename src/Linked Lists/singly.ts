@@ -1,4 +1,11 @@
-import { Node } from './utils';
+class Node {
+    data: number;
+    next: Node | null;
+    constructor(data: number) {
+        this.data = data;
+        this.next = null;
+    }
+}
 
 export class SinglyLinkedList {
     head: Node | null;
@@ -43,6 +50,17 @@ export class SinglyLinkedList {
             }
             current = current.next;
         }
+    }
+
+    find(data: number) {
+        let current = this.head;
+        while(current) {
+            if (current.data === data) {
+                return current;
+            }
+            current = current.next;
+        }
+        return null;
     }
 
     getListAsString() {

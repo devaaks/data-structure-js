@@ -1,4 +1,5 @@
 import {SinglyLinkedList} from './singly';
+import {DoublyLinkedList} from './doubly';
 
 const main = () => {
     console.log(`\n====================== Singly Linked List ====================== `);
@@ -8,8 +9,25 @@ const main = () => {
     singlyLinkedList.addNode(3);
     console.log(`\nSingly linked list after add operation: `, singlyLinkedList.getListAsString());
 
+    const result = singlyLinkedList.find(3);
+    console.log(`\nSingly linked list find: `, result);
+
     singlyLinkedList.removeNode(2);
     console.log(`\nSingly linked list after remove operation: `, singlyLinkedList.getListAsString());
+
+    console.log(`\n====================== Doubly Linked List ====================== `);
+    const doublyLinkedList = new DoublyLinkedList();
+    doublyLinkedList.addNode(1);
+    doublyLinkedList.addNode(2);
+    doublyLinkedList.addNode(3);
+    console.log({ doublyLinkedList });
+    console.log(`\nDoubly linked list after add operation: `, doublyLinkedList.getListAsString());
+
+    // const result = doublyLinkedList.find(3);
+    // console.log(`\nDoubly linked list find: `, result);
+
+    // doublyLinkedList.removeNode(2);
+    // console.log(`\nDoubly linked list after remove operation: `, doublyLinkedList.getListAsString());
 }
 
 export default main;
