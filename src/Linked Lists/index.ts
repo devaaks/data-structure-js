@@ -1,4 +1,4 @@
-import {SinglyLinkedList} from './singly.linked-list';
+import {SinglyLinkedList} from './singly';
 
 const main = () => {
     console.log(`\n====================== Singly Linked List ====================== `);
@@ -6,10 +6,10 @@ const main = () => {
     singlyLinkedList.addNode(1);
     singlyLinkedList.addNode(2);
     singlyLinkedList.addNode(3);
-    console.log(`\nQueue after enqueue operation: `, queue.print());
+    console.log(`\nSingly linked list after add operation: `, singlyLinkedList.getListAsString());
 
-    queue.dequeue();
-    console.log(`Queue after pop operation: `, queue.print());
+    singlyLinkedList.removeNode(2);
+    console.log(`\nSingly linked list after remove operation: `, singlyLinkedList.getListAsString());
 }
 
 export default main;
