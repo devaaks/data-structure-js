@@ -9,8 +9,8 @@ const main = () => {
     singlyLinkedList.addNode(3);
     console.log(`\nSingly linked list after add operation: `, singlyLinkedList.getListAsString());
 
-    const result = singlyLinkedList.find(3);
-    console.log(`\nSingly linked list find: `, result);
+    const resultSinglyFind = singlyLinkedList.find(3);
+    console.log(`\nSingly linked list find: `, resultSinglyFind);
 
     singlyLinkedList.removeNode(2);
     console.log(`\nSingly linked list after remove operation: `, singlyLinkedList.getListAsString());
@@ -20,11 +20,10 @@ const main = () => {
     doublyLinkedList.addNode(1);
     doublyLinkedList.addNode(2);
     doublyLinkedList.addNode(3);
-    console.log({ doublyLinkedList });
     console.log(`\nDoubly linked list after add operation: `, doublyLinkedList.getListAsString());
 
-    // const result = doublyLinkedList.find(3);
-    // console.log(`\nDoubly linked list find: `, result);
+    const resultdoublyFind = doublyLinkedList.find(3);
+    console.log(`\nDoubly linked list find: `, resultdoublyFind);
 
     // doublyLinkedList.removeNode(2);
     // console.log(`\nDoubly linked list after remove operation: `, doublyLinkedList.getListAsString());

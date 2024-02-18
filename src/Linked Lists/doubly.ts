@@ -32,6 +32,15 @@ export class DoublyLinkedList {
         }
     }
 
+    find(data: number) {
+        let cursor = this.head;
+        while (cursor) {
+            if (cursor.data === data) return true;
+            cursor = cursor.next;
+        }
+        return false;
+    }
+
     getListAsString() {
         let cursor = this.head;
         let linkedListItems = '';

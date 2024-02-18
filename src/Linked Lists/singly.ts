@@ -55,12 +55,10 @@ export class SinglyLinkedList {
     find(data: number) {
         let current = this.head;
         while(current) {
-            if (current.data === data) {
-                return current;
-            }
+            if (current.data === data) return true;
             current = current.next;
         }
-        return null;
+        return false;
     }
 
     getListAsString() {
