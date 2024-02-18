@@ -41,6 +41,44 @@ export class DoublyLinkedList {
         return false;
     }
 
+    removeNode(data: number) {
+        if (this.head === null) return;
+
+        let cursor = this.head;
+
+        while (cursor) {
+            if (cursor.data === data) {
+                if (cursor.data === this.head.data) {   // if it is first
+                    const newHead = this.head.next as DoublyLinkedListNode;
+    
+                    this.head = newHead
+                } else if (this.tail && cursor.data === this.tail.data) {      // if it is last
+                    const current = cursor;
+                    const previous = current.previous;
+
+                    this.tail = previous;
+                    // @ts-ignore
+                    previous.next = null;
+                    current.next = null;
+                } else {                                // if it is in middle
+                    const current = cursor;
+                    const previous = current.previous;
+                    const next = current.next;
+
+                    // @ts-ignore
+                    previous.next = next;
+                    // @ts-ignore
+                    next.previous = previous; 
+
+                    current.next = null;
+                    current.previous = null;
+                }
+            }
+            //@ts-ignore
+            cursor = cursor.next;
+        }
+    }
+
     getListAsString() {
         let cursor = this.head;
         let linkedListItems = '';

@@ -25,8 +25,8 @@ const main = () => {
     const resultdoublyFind = doublyLinkedList.find(3);
     console.log(`\nDoubly linked list find: `, resultdoublyFind);
 
-    // doublyLinkedList.removeNode(2);
-    // console.log(`\nDoubly linked list after remove operation: `, doublyLinkedList.getListAsString());
+    doublyLinkedList.removeNode(3);
+    console.log(`\nDoubly linked list after remove operation: `, doublyLinkedList.getListAsString());
 }
 
 export default main;
