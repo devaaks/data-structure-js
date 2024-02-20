@@ -30,15 +30,33 @@ class Tree {
                 node.left = newNode;
             } else {
                 // @ts-ignore
-                this.insertNode(node.right, newNode);
+                this.insertNode(node.left, newNode);
             }
         } else {
             if (!node.right) {
                 node.right = newNode;
             } else {
                 // @ts-ignore
-                this.insertNode(node.left, newNode);
+                this.insertNode(node.right, newNode);
             }
         }
     }
 }
+
+
+const main = () => {
+    console.log(`\n====================== Binary Search Tree ====================== `);
+    const tree = new Tree();
+    tree.addNode(1);
+    tree.addNode(2);
+    tree.addNode(3);
+    console.log(`\nBinary search tree after add operation: `, tree);
+
+    // const resultSinglyFind = tree.find(3);
+    // console.log(`\nBinary search tree find: `, resultSinglyFind);
+
+    // tree.removeNode(2);
+    // console.log(`\nBinary search tree after remove operation: `, tree.getListAsString());
+}
+
+export default main;
