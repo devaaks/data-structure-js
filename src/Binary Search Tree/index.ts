@@ -41,6 +41,41 @@ class Tree {
             }
         }
     }
+
+    remove(data: number) {
+        this.root = this.removeNode(this.root, data)
+      }
+      
+      removeNode(node: BstNode | null, data: number) {
+        if (!node) {
+          return null;
+        }
+        if (data < node.data) {
+          node.left = this.removeNode(node.left, data);
+          return node;
+        } else if (data > node.data) {
+          node.right = this.removeNode(node.right, data);
+          return node;
+        } else {
+          if (!node.left && !node.right) {
+            node = null;
+            return node;
+          }
+          if (!node.left) {
+            node = node.right;
+            return node;
+          } 
+          if (!node.right) {
+            node = node.left;
+            return node;
+          }
+          
+          let min = this.findMinNode(node.right);
+          node.data = min.data;
+          node.right = this.removeNode(node.right, min.data);
+          return node;
+        }
+      }
 }
 
 
