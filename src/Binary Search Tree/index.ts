@@ -43,39 +43,78 @@ class Tree {
     }
 
     remove(data: number) {
-        this.root = this.removeNode(this.root, data)
-      }
-      
-      removeNode(node: BstNode | null, data: number) {
-        if (!node) {
-          return null;
+    this.root = this.removeNode(this.root, data)
+    }
+    
+    removeNode(node: BstNode | null, data: number) {
+    if (!node) {
+        return null;
+    }
+    if (data < node.data) {
+        node.left = this.removeNode(node.left, data);
+        return node;
+    } else if (data > node.data) {
+        node.right = this.removeNode(node.right, data);
+        return node;
+    } else {
+        if (!node.left && !node.right) {
+        node = null;
+        return node;
         }
-        if (data < node.data) {
-          node.left = this.removeNode(node.left, data);
-          return node;
-        } else if (data > node.data) {
-          node.right = this.removeNode(node.right, data);
-          return node;
-        } else {
-          if (!node.left && !node.right) {
-            node = null;
-            return node;
-          }
-          if (!node.left) {
-            node = node.right;
-            return node;
-          } 
-          if (!node.right) {
-            node = node.left;
-            return node;
-          }
-          
-          let min = this.findMinNode(node.right);
-          node.data = min.data;
-          node.right = this.removeNode(node.right, min.data);
-          return node;
+        if (!node.left) {
+        node = node.right;
+        return node;
+        } 
+        if (!node.right) {
+        node = node.left;
+        return node;
         }
-      }
+        
+        let min = this.findMinNode(node.right);
+        node.data = min.data;
+        node.right = this.removeNode(node.right, min.data);
+        return node;
+    }
+    }
+
+    findMinNode(right: BstNode) {
+        // TODO
+    }
+
+    inOrder(node: BstNode | null) {
+        if (node) {
+            this.inOrder(node.left);
+            console.log(node.data);
+            this.inOrder(node.right);
+         }
+    }
+
+    preOrder(node: BstNode | null) {
+
+    }
+
+    postOrder(node: BstNode | null) {
+
+    }
+
+    traverse(mode: 'INORDER' | 'PREORDER' | 'POSTORDER'){
+        switch (mode) {
+            case 'INORDER':
+                this.inOrder(this.root);
+                break;
+            
+            case 'PREORDER':
+                this.preOrder(this.root);
+                break;
+
+            case 'POSTORDER':
+                this.postOrder(this.root);
+                break;
+        
+            default:
+                break;
+        }
+    }
 }
 
 
@@ -86,6 +125,9 @@ const main = () => {
     tree.addNode(2);
     tree.addNode(3);
     console.log(`\nBinary search tree after add operation: `, tree);
+
+    console.log(` ========== Tranverseing: inorder `);
+    tree.traverse('INORDER');
 
     // const resultSinglyFind = tree.find(3);
     // console.log(`\nBinary search tree find: `, resultSinglyFind);
