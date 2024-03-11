@@ -18,10 +18,10 @@ class Tree {
     addNode(data: number) {
         const newNode = new BstNode(data);
         if (!this.root) {
-            this.root = newNode; 
+            this.root = newNode;
         } else {
             this.insertNode(this.root, newNode);
-        }  
+        }
     }
 
     insertNode(node: BstNode, newNode: BstNode) {
@@ -43,38 +43,38 @@ class Tree {
     }
 
     remove(data: number) {
-    this.root = this.removeNode(this.root, data)
+        this.root = this.removeNode(this.root, data)
     }
-    
+
     removeNode(node: BstNode | null, data: number) {
-    if (!node) {
-        return null;
-    }
-    if (data < node.data) {
-        node.left = this.removeNode(node.left, data);
-        return node;
-    } else if (data > node.data) {
-        node.right = this.removeNode(node.right, data);
-        return node;
-    } else {
-        if (!node.left && !node.right) {
-        node = null;
-        return node;
+        if (!node) {
+            return null;
         }
-        if (!node.left) {
-        node = node.right;
-        return node;
-        } 
-        if (!node.right) {
-        node = node.left;
-        return node;
+        if (data < node.data) {
+            node.left = this.removeNode(node.left, data);
+            return node;
+        } else if (data > node.data) {
+            node.right = this.removeNode(node.right, data);
+            return node;
+        } else {
+            if (!node.left && !node.right) {
+                node = null;
+                return node;
+            }
+            if (!node.left) {
+                node = node.right;
+                return node;
+            }
+            if (!node.right) {
+                node = node.left;
+                return node;
+            }
+
+            let min = this.findMinNode(node.right);
+            node.data = min.data;
+            node.right = this.removeNode(node.right, min.data);
+            return node;
         }
-        
-        let min = this.findMinNode(node.right);
-        node.data = min.data;
-        node.right = this.removeNode(node.right, min.data);
-        return node;
-    }
     }
 
     findMinNode(right: BstNode) {
@@ -86,23 +86,31 @@ class Tree {
             this.inOrder(node.left);
             console.log(node.data);
             this.inOrder(node.right);
-         }
+        }
     }
 
     preOrder(node: BstNode | null) {
-
+        if (node) {
+            console.log(node.data);
+            this.preOrder(node.left);
+            this.preOrder(node.right);
+        }
     }
 
     postOrder(node: BstNode | null) {
-
+        if (node) {
+            this.postOrder(node.left);
+            this.postOrder(node.right);
+            console.log(node.data);
+        }
     }
 
-    traverse(mode: 'INORDER' | 'PREORDER' | 'POSTORDER'){
+    traverse(mode: 'INORDER' | 'PREORDER' | 'POSTORDER') {
         switch (mode) {
             case 'INORDER':
                 this.inOrder(this.root);
                 break;
-            
+
             case 'PREORDER':
                 this.preOrder(this.root);
                 break;
@@ -110,7 +118,7 @@ class Tree {
             case 'POSTORDER':
                 this.postOrder(this.root);
                 break;
-        
+
             default:
                 break;
         }
