@@ -125,6 +125,20 @@ class Tree {
     }
 }
 
+export const depthFirstTraverse = (node: BstNode) => {
+    console.log(node.data);
+
+    if (node.left === null && node.right === null) return;
+
+    if (node.left) {
+        depthFirstTraverse(node.left);
+    }
+
+    if (node.right) {
+        depthFirstTraverse(node.right);
+    }
+}
+
 
 const main = () => {
     console.log(`\n====================== Binary Search Tree ====================== `);
