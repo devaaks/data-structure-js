@@ -105,6 +105,26 @@ class Tree {
         }
     }
 
+    dfs(root: BstNode | null  = this.root, result: Set<Number> = new Set()) {
+        if(!root) return;
+
+        if (result.size === 0) {
+            result.add(root.data);
+        }
+
+        if (root.left === null && root.right === null) return;
+
+        if (root.left) {
+            result.add(root.left.data)
+            this.dfs(root.left, result);
+        }
+
+        if (root.right) {
+            result.add(root.right.data)
+            this.dfs(root.right, result);
+        }
+    }
+
     bfs() {
         if(!this.root) return;
         const queue = [];
@@ -146,19 +166,6 @@ class Tree {
     }
 }
 
-export const depthFirstTraverse = (node: BstNode) => {
-    console.log(node.data);
-
-    if (node.left === null && node.right === null) return;
-
-    if (node.left) {
-        depthFirstTraverse(node.left);
-    }
-
-    if (node.right) {
-        depthFirstTraverse(node.right);
-    }
-}
 
 
 const main = () => {
