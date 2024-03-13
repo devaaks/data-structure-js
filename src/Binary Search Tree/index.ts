@@ -105,6 +105,27 @@ class Tree {
         }
     }
 
+    bfs() {
+        if(!this.root) return;
+        const queue = [];
+        const output = [];
+        queue.push(this.root);
+
+        while(queue.length) {
+            const node = queue.shift() as BstNode;
+            if (node.left) {
+                queue.push(node.left);
+            }
+
+            if (node.right) {
+                queue.push(node.right);
+            }
+            output.push(node.data);
+        }
+
+        return output;
+    }
+ 
     traverse(mode: 'INORDER' | 'PREORDER' | 'POSTORDER') {
         switch (mode) {
             case 'INORDER':
